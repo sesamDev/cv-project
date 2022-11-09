@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './App.css'
 import CvBody from './components/CvBody'
+import uniqid from "uniqid"
 
 class App extends Component {
   constructor() {
@@ -14,10 +15,15 @@ class App extends Component {
           zipCode: '',
           city: '',
           phone: '',
+          id: uniqid()
         },
+        education:{
+          ph: "",
+        }
       },
     }
   }
+
 
   handleChange = (e) => {
     e.preventDefault()
