@@ -4,10 +4,12 @@ import CvCard from "./CvCard";
 
 
 class CvBody extends Component{
+constructor(props){
+    super(props)
+  }
   render(){
     return (
-      <div className="CvBody">Hello MY world
-        <CvCard/>
+      <div className="CvBody">Hello {this.props.user.personalInfo.firstName} <CvCard/>
         <CvCard/>
         <CvCard/>
     </div>)
