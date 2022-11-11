@@ -1,5 +1,10 @@
-import { Component } from "react";
 import "./App.css";
+
+import { Component } from "react";
+import ContentContainer from "./components/ContentContainer";
+import NavBar from "./components/NavBar";
+import PageFooter from "./components/PageFooter";
+import React from "react";
 import uniqid from "uniqid";
 
 class App extends Component {
@@ -33,9 +38,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav-bar className="navBar" />
-        <content-container className="contentContainer" />
-        <page-footer className="pageFooter" />
+        <NavBar className="navBar" />
+        <ContentContainer className="contentContainer" />
+        <PageFooter className="pageFooter" />
       </div>
     );
   }
