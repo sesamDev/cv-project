@@ -1,44 +1,44 @@
-import { Component } from 'react'
-import './App.css'
-import CvBody from './components/CvBody'
-import uniqid from "uniqid"
+import { Component } from "react";
+import "./App.css";
+import uniqid from "uniqid";
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       user: {
         personalInfo: {
-          firstName: 'Sebastian',
-          lastName: '',
-          adress: '',
-          zipCode: '',
-          city: '',
-          phone: '',
-          id: uniqid()
+          firstName: "Sebastian",
+          lastName: "",
+          adress: "",
+          zipCode: "",
+          city: "",
+          phone: "",
+          id: uniqid(),
         },
-        education:{
+        education: {
           ph: "",
-        }
+        },
       },
-    }
+    };
   }
-
 
   handleChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({
       user: {},
-    })
-  }
+    });
+  };
 
   render() {
     return (
-      <div className='App'>
-        <CvBody user={this.state.user}/>
+      <div className="App">
+        <nav-bar className="navBar" />
+        <content-container className="contentContainer" />
+        <page-footer className="pageFooter" />
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
