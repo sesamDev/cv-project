@@ -6,9 +6,10 @@ class NavBar extends Component {
   NavItems() {
     return (
       <div className="navItems">
+        <h2>Curriculum vitae</h2>
         <ul>
-          <li className="menuItem">Display resume</li>
-          <li className="menuItem">Edit resume</li>
+          <li className="menuItem">Print</li>
+          <li className="menuItem">Edit</li>
         </ul>
       </div>
     );
