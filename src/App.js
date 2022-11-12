@@ -35,10 +35,13 @@ class App extends Component {
     });
   };
 
+  handleButtonClick = (e) => {
+    console.log(e.target);
+  };
   render() {
     return (
       <div className="App">
-        <NavBar className="navBar" />
+        <NavBar className="navBar" handleButtonClick={this.handleButtonClick} />
         <ContentContainer className="contentContainer" />
         <PageFooter className="pageFooter" />
       </div>
