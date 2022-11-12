@@ -1,8 +1,10 @@
+import "../styles/PageFooter.css";
+
 import React, { Component } from "react";
 
 class PageFooter extends Component {
   render() {
-    return <div>Well hello world</div>;
+    return <div className="footer">sesamDev</div>;
   }
 }
 

@@ -1,6 +1,11 @@
 .App {
+  height: 100vh;
   display: grid;
   grid-template-rows: 50px 1fr 50px;
   justify-content: center;
   text-align: center;
+}
+
+.footer {
+  grid-row: 3/4;
 }
