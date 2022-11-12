@@ -36,7 +36,13 @@ class App extends Component {
   };
 
   handleButtonClick = (e) => {
-    console.log(e.target);
+    const button = e.target.id;
+    if (button === "printButton") {
+      console.log("Print button clicked");
+    }
+    if (button === "editButton") {
+      console.log("Edit button clicked");
+    }
   };
   render() {
     return (

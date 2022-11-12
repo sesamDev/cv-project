@@ -8,10 +8,10 @@ class NavBar extends Component {
       <div className="navItems">
         <h2>Curriculum vitae</h2>
         <ul>
-          <li className="menuItem" onClick={this.props.handleButtonClick}>
+          <li className="menuItem" id="printButton" onClick={this.props.handleButtonClick}>
             Print
           </li>
-          <li className="menuItem" onClick={this.props.handleButtonClick}>
+          <li className="menuItem" id="editButton" onClick={this.props.handleButtonClick}>
             Edit
           </li>
         </ul>
