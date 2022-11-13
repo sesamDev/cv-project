@@ -19,7 +19,7 @@ class Form extends Component {
   };
   experianceForm = () => {
     return (
-      <div className="experianceForm">
+      <div className="experienceForm">
         <div>
           <label htmlFor="employer">Employer</label>
           <input type="text" id="employer" />
