@@ -24,6 +24,20 @@ class App extends Component {
         education: {
           ph: "",
         },
+        experiance: {
+          entry: {
+            employer: "DHL",
+            role: "Superior",
+            startDate: "2008-01-07",
+            endDate: "2020-01-07",
+          },
+          entry2: {
+            employer: "ICA",
+            role: "Slav",
+            startDate: "2008-01-07",
+            endDate: "2020-01-07",
+          },
+        },
       },
     };
   }
@@ -48,7 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar className="navBar" handleButtonClick={this.handleButtonClick} />
-        <ContentContainer className="contentContainer" />
+        <ContentContainer className="contentContainer" user={this.state.user} />
         <PageFooter className="pageFooter" />
       </div>
     );
