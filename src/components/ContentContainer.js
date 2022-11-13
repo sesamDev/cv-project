@@ -8,7 +8,7 @@ class ContentContainer extends Component {
   render() {
     return (
       <div className="contentContainer">
-        <Form />
+        <Form user={this.props.user} />
       </div>
     );
   }
