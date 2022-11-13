@@ -9,3 +9,7 @@
 .footer {
   grid-row: 3/4;
 }
+.contentContainer {
+  margin-top: 100px;
+  grid-row: 2/3;
+}
