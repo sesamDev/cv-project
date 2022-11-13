@@ -1,3 +1,5 @@
+import "../styles/ContentContainer.css";
+
 import React, { Component } from "react";
 
 import Form from "./Form";
