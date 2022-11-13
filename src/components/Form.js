@@ -13,13 +13,9 @@ class Form extends Component {
     this.setState({ jobs: [].concat(this.state.jobs, this.experianceForm()) });
   };
   appendExperianceForm = () => {
-    return (
-      <div>
-        {Object.keys(this.state.jobs).map((job) => {
-          return <div key={job}>{this.state.jobs[job]}</div>;
-        })}
-      </div>
-    );
+    return Object.keys(this.state.jobs).map((job) => {
+      return <div key={job}>{this.state.jobs[job]}</div>;
+    });
   };
   experianceForm = () => {
     return (
