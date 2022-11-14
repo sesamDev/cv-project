@@ -25,3 +25,22 @@ input {
   font-size: 1.4rem;
   padding-left: 0.5rem;
 }
+
+.experienceForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border: 1px solid black;
+  width: auto;
+}
+.experienceForm:nth-child(even) {
+  background-color: blue;
+}
+
+.experienceForm > .textInput {
+  grid-column: 1/2;
+}
+
+.experienceForm > .dateInput {
+  grid-column: 2/3;
+}
