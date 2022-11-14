@@ -24,36 +24,19 @@ class App extends Component {
         education: {
           schools: [],
         },
-        experience: {
-          jobs: [],
-          entry: {
-            employer: "DHL",
-            role: "Superior",
-            startDate: "2008-01-07",
-            endDate: "2020-01-07",
-          },
-          entry2: {
-            employer: "ICA",
-            role: "Slav",
-            startDate: "2008-01-07",
-            endDate: "2020-01-07",
-          },
-        },
       },
+      experience: [],
       editView: true,
     };
   }
 
-  // handleJobChange = (e)=>{
-  //   e.preventDefault();
-  //   const target = e.target.id
-  //   this.setState({
-  //     user:{
-  //       experience
-  //     }
-
-  //   })
-  // }
+  handleJobChange = (job) => {
+    this.setState(() => {
+      return {
+        experience: [].concat(this.state.experience, job),
+      };
+    });
+  };
 
   handleChange = (e) => {
     e.preventDefault();
@@ -99,7 +82,9 @@ class App extends Component {
           className="contentContainer"
           editView={this.state.editView}
           user={this.state.user}
+          experience={this.state.experience}
           handleChange={this.handleChange}
+          handleJobChange={this.handleJobChange}
         />
         <PageFooter className="pageFooter" />
       </div>

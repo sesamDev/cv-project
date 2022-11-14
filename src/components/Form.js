@@ -2,27 +2,47 @@ import "../styles/Form.css";
 
 import React, { Component } from "react";
 
+import uniqid from "uniqid";
+
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       jobs: [],
       education: [],
+      jobForms: {},
     };
   }
-  increaseJobForms = () => {
-    this.setState({ jobs: [].concat(this.state.jobs, this.experienceForm()) });
-  };
 
   increaseEducationForms = () => {
     this.setState({ education: [].concat(this.state.education, this.educationForm()) });
   };
+
   appendExperienceForm = () => {
-    if (this.state.jobs.length <= 0) {
+    if (this.props.experience.length <= 0) {
       return <div className="experience-container">Click add experience</div>;
     }
-    return Object.keys(this.state.jobs).map((job) => {
-      return <div key={job}>{this.state.jobs[job]}</div>;
+    return this.props.experience.map((job) => {
+      return (
+        <div className="experienceForm" key={job.id} id={job.id}>
+          <div className="textInput">
+            <label htmlFor="employer">Employer</label>
+            <input type="text" id="employer" />
+          </div>
+          <div className="textInput">
+            <label htmlFor="role">Role</label>
+            <input type="text" id="role" />
+          </div>
+          <div className="dateInput">
+            <label htmlFor="startDate">Start Date</label>
+            <input type="date" id="startDate" />
+          </div>
+          <div className="dateInput">
+            <label htmlFor="endDate">End Date</label>
+            <input type="date" id="endDate" />
+          </div>
+        </div>
+      );
     });
   };
 
@@ -34,27 +54,20 @@ class Form extends Component {
       return <div key={school}>{this.state.education[school]}</div>;
     });
   };
-  experienceForm = () => {
-    return (
-      <div className="experienceForm">
-        <div className="textInput">
-          <label htmlFor="employer">Employer</label>
-          <input type="text" id="employer" />
-        </div>
-        <div className="textInput">
-          <label htmlFor="role">Role</label>
-          <input type="text" id="role" />
-        </div>
-        <div className="dateInput">
-          <label htmlFor="startDate">Start Date</label>
-          <input type="date" id="startDate" />
-        </div>
-        <div className="dateInput">
-          <label htmlFor="endDate">End Date</label>
-          <input type="date" id="endDate" />
-        </div>
-      </div>
-    );
+
+  createNewJob = () => {
+    const newJob = {
+      employer: "",
+      role: "",
+      startDate: "",
+      endDate: "",
+      id: uniqid(),
+    };
+    return newJob;
+  };
+
+  updateAppExperienceState = () => {
+    this.props.handleJobChange(this.createNewJob());
   };
 
   educationForm = () => {
@@ -160,7 +173,7 @@ class Form extends Component {
             </div>
           </div>
           <div className="experience">
-            <button type="button" id="addExperience" onClick={this.increaseJobForms}>
+            <button type="button" id="addExperience" onClick={this.updateAppExperienceState}>
               Add experience
             </button>
             {this.appendExperienceForm()}
