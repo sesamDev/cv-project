@@ -39,6 +39,7 @@ class App extends Component {
           },
         },
       },
+      editView: true,
     };
   }
 
@@ -53,16 +54,22 @@ class App extends Component {
     const button = e.target.id;
     if (button === "printButton") {
       console.log("Print button clicked");
+      this.setState({
+        editView: false,
+      });
     }
     if (button === "editButton") {
       console.log("Edit button clicked");
+      this.setState({
+        editView: true,
+      });
     }
   };
   render() {
     return (
       <div className="App">
         <NavBar className="navBar" handleButtonClick={this.handleButtonClick} />
-        <ContentContainer className="contentContainer" user={this.state.user} />
+        <ContentContainer className="contentContainer" editView={this.state.editView} user={this.state.user} />
         <PageFooter className="pageFooter" />
       </div>
     );
