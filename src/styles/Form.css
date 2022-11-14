@@ -26,7 +26,8 @@ input {
   padding-left: 0.5rem;
 }
 
-.experienceForm {
+.experienceForm,
+.educationForm {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -43,4 +44,9 @@ input {
 
 .experienceForm > .dateInput {
   grid-column: 2/3;
+}
+
+.experience-container {
+  border: 1px solid black;
+  height: 70px;
 }

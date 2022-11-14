@@ -7,17 +7,34 @@ class Form extends Component {
     super(props);
     this.state = {
       jobs: [],
+      education: [],
     };
   }
   increaseJobForms = () => {
-    this.setState({ jobs: [].concat(this.state.jobs, this.experianceForm()) });
+    this.setState({ jobs: [].concat(this.state.jobs, this.experienceForm()) });
   };
-  appendExperianceForm = () => {
+
+  increaseEducationForms = () => {
+    this.setState({ education: [].concat(this.state.education, this.educationForm()) });
+  };
+  appendExperienceForm = () => {
+    if (this.state.jobs.length <= 0) {
+      return <div className="experience-container">Click add experience</div>;
+    }
     return Object.keys(this.state.jobs).map((job) => {
       return <div key={job}>{this.state.jobs[job]}</div>;
     });
   };
-  experianceForm = () => {
+
+  appendEducationForm = () => {
+    if (this.state.jobs.length <= 0) {
+      return <div className="experience-container">Click add education</div>;
+    }
+    return Object.keys(this.state.education).map((school) => {
+      return <div key={school}>{this.state.education[school]}</div>;
+    });
+  };
+  experienceForm = () => {
     return (
       <div className="experienceForm">
         <div className="textInput">
@@ -39,14 +56,37 @@ class Form extends Component {
       </div>
     );
   };
-  experiance = () => {
-    const experiance = this.props.user.experiance;
+
+  educationForm = () => {
+    return (
+      <div className="educationForm">
+        <div className="textInput">
+          <label htmlFor="school">School</label>
+          <input type="text" id="school" />
+        </div>
+        <div className="textInput">
+          <label htmlFor="titleOfStudy">Title of study</label>
+          <input type="text" id="titleOfStudy" />
+        </div>
+        <div className="dateInput">
+          <label htmlFor="startDate">Start Date</label>
+          <input type="date" id="startDate" />
+        </div>
+        <div className="dateInput">
+          <label htmlFor="endDate">End Date</label>
+          <input type="date" id="endDate" />
+        </div>
+      </div>
+    );
+  };
+  experience = () => {
+    const experience = this.props.user.experience;
     //Can be used in print view later
-    // const list = Object.keys(experiance).map((entry) => {
+    // const list = Object.keys(experience).map((entry) => {
     //   return (
     //     <ul key={entry}>
-    //       {Object.keys(experiance[entry]).map((keys) => {
-    //         return <li key={keys}>{experiance[entry][keys]}</li>;
+    //       {Object.keys(experience[entry]).map((keys) => {
+    //         return <li key={keys}>{experience[entry][keys]}</li>;
     //       })}
     //     </ul>
     //   );
@@ -83,11 +123,15 @@ class Form extends Component {
               <input type="text" name="phone" id="phone" />
             </div>
           </div>
-          <div className="experiance">
+          <div className="experience">
             <button type="button" id="addExperience" onClick={this.increaseJobForms}>
-              Add
+              Add experience
             </button>
-            {this.appendExperianceForm()}
+            {this.appendExperienceForm()}
+            <button type="button" id="addEducation" onClick={this.increaseEducationForms}>
+              Add education
+            </button>
+            {this.appendEducationForm()}
           </div>
         </form>
       </div>
