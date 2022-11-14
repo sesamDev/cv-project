@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       user: {
         personalInfo: {
-          firstName: "Sebastian",
+          firstName: "",
           lastName: "",
           adress: "",
           zipCode: "",
@@ -22,9 +22,10 @@ class App extends Component {
           id: uniqid(),
         },
         education: {
-          ph: "",
+          schools: [],
         },
-        experiance: {
+        experience: {
+          jobs: [],
           entry: {
             employer: "DHL",
             role: "Superior",
@@ -43,11 +44,36 @@ class App extends Component {
     };
   }
 
+  // handleJobChange = (e)=>{
+  //   e.preventDefault();
+  //   const target = e.target.id
+  //   this.setState({
+  //     user:{
+  //       experience
+  //     }
+
+  //   })
+  // }
+
   handleChange = (e) => {
     e.preventDefault();
-    this.setState({
-      user: {},
+
+    this.setState(() => {
+      return {
+        user: {
+          personalInfo: {
+            firstName: e.target.id === "firstName" ? e.target.value : this.state.user.personalInfo.firstName,
+            lastName: e.target.id === "lastName" ? e.target.value : this.state.user.personalInfo.lastName,
+            adress: e.target.id === "adress" ? e.target.value : this.state.user.personalInfo.adress,
+            zipCode: e.target.id === "zipCode" ? e.target.value : this.state.user.personalInfo.zipCode,
+            city: e.target.id === "city" ? e.target.value : this.state.user.personalInfo.city,
+            phone: e.target.id === "phone" ? e.target.value : this.state.user.personalInfo.phone,
+          },
+        },
+      };
     });
+
+    console.log(this.state.user);
   };
 
   handleButtonClick = (e) => {
@@ -69,7 +95,12 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar className="navBar" handleButtonClick={this.handleButtonClick} />
-        <ContentContainer className="contentContainer" editView={this.state.editView} user={this.state.user} />
+        <ContentContainer
+          className="contentContainer"
+          editView={this.state.editView}
+          user={this.state.user}
+          handleChange={this.handleChange}
+        />
         <PageFooter className="pageFooter" />
       </div>
     );

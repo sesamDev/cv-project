@@ -80,7 +80,7 @@ class Form extends Component {
     );
   };
   experience = () => {
-    const experience = this.props.user.experience;
+    const experience = this.props.user.personalInfoexperience;
     //Can be used in print view later
     // const list = Object.keys(experience).map((entry) => {
     //   return (
@@ -100,27 +100,63 @@ class Form extends Component {
           <div className="personalInfo">
             <div>
               <label htmlFor="firstName">First name</label>
-              <input type="text" name="firstName" id="firstName" />
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                defaultValue={this.props.user.personalInfo.firstName}
+                onChange={this.props.handleChange}
+              />
             </div>
             <div>
               <label htmlFor="lastName">Last name</label>
-              <input type="text" name="lastName" id="lastName" />
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                defaultValue={this.props.user.personalInfo.lastName}
+                onChange={this.props.handleChange}
+              />
             </div>
             <div>
               <label htmlFor="adress">Address</label>
-              <input type="text" name="adress" id="adress" />
+              <input
+                type="text"
+                name="adress"
+                id="adress"
+                defaultValue={this.props.user.personalInfo.adress}
+                onChange={this.props.handleChange}
+              />
             </div>
             <div>
               <label htmlFor="zipCode">Zip Code</label>
-              <input type="text" name="zipCode" id="zipCode" />
+              <input
+                type="text"
+                name="zipCode"
+                id="zipCode"
+                defaultValue={this.props.user.personalInfo.zipCode}
+                onChange={this.props.handleChange}
+              />
             </div>
             <div>
               <label htmlFor="city">City</label>
-              <input type="text" name="city" id="city" />
+              <input
+                type="text"
+                name="city"
+                id="city"
+                defaultValue={this.props.user.personalInfo.city}
+                onChange={this.props.handleChange}
+              />
             </div>
             <div>
               <label htmlFor="phone">Phone</label>
-              <input type="text" name="phone" id="phone" />
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                defaultValue={this.props.user.personalInfo.phone}
+                onChange={this.props.handleChange}
+              />
             </div>
           </div>
           <div className="experience">

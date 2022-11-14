@@ -8,7 +8,7 @@ import Form from "./Form";
 class ContentContainer extends Component {
   switchViews = () => {
     if (this.props.editView) {
-      return <Form user={this.props.user} />;
+      return <Form user={this.props.user} handleChange={this.props.handleChange} />;
     }
     return <Display user={this.props.user} />;
   };
