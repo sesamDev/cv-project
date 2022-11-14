@@ -20,19 +20,19 @@ class Form extends Component {
   experianceForm = () => {
     return (
       <div className="experienceForm">
-        <div>
+        <div className="textInput">
           <label htmlFor="employer">Employer</label>
           <input type="text" id="employer" />
         </div>
-        <div>
+        <div className="textInput">
           <label htmlFor="role">Role</label>
           <input type="text" id="role" />
         </div>
-        <div>
+        <div className="dateInput">
           <label htmlFor="startDate">Start Date</label>
           <input type="date" id="startDate" />
         </div>
-        <div>
+        <div className="dateInput">
           <label htmlFor="endDate">End Date</label>
           <input type="date" id="endDate" />
         </div>
