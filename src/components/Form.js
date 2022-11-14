@@ -27,7 +27,7 @@ class Form extends Component {
   };
 
   appendEducationForm = () => {
-    if (this.state.jobs.length <= 0) {
+    if (this.state.education.length <= 0) {
       return <div className="experience-container">Click add education</div>;
     }
     return Object.keys(this.state.education).map((school) => {
